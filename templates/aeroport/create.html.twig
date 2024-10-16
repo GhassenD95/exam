@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AeroportController!{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Ajouter Aeroport</h1>
+        <form action="{{ path('app_aeroport_store') }}" method="post">
+            <div>
+                <label for="nom">nom</label>
+                <input type="text" name="nom" id="nom">
+            </div>
+
+            <div>
+                <label for="ville">ville</label>
+                <input type="text" name="ville" id="ville">
+            </div>
+            <button type="submit">ajouter</button>
+        </form>
+
+        {% for message in app.flashes("error") %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

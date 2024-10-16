@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AeroportController!{% endblock %}
+
+{% block body %}
+    <div>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+            {% for aeroport in aeroports %}
+                <tr>
+                    <td>{{ aeroport.nom }}</td>
+                    <td>{{ aeroport.ville }}</td>
+                    <td>
+                        <a href="/aeroport/edit/{{ aeroport.id }}">Modifier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url('app_aeroport_create') }}">ajouter aeroport</a>
+        {% for message in app.flashes("error") %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
